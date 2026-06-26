@@ -1,0 +1,26 @@
+:root {
+    /* Replace these with the EXACT hex codes from the asset drive */
+    --primary-color: #0A0A0A; /* Premium Dark Background placeholder */
+    --secondary-color: #1A1A1A; /* Premium Surface placeholder */
+    --accent-color: #6366F1; /* Indigo Accent placeholder */
+    
+    --background-color: var(--primary-color);
+    --text-color: #F3F4F6;
+    
+    /* Font families from the strict typography parameters */
+    --font-primary: 'Inter', sans-serif;
+    --font-secondary: 'Outfit', sans-serif;
+}
+
+body {
+    font-family: var(--font-primary);
+    background-color: var(--background-color);
+    color: var(--text-color);
+    margin: 0;
+    padding: 0;
+}
+
+/* Base Semantic Tag Styling */
+section {
+    padding: 4rem 2rem;
+}
