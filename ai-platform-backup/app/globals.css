@@ -1,0 +1,258 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ── FONTS (replace src paths with your asset pack fonts) ── */
+@font-face {
+  font-family: 'DisplayFont';
+  src: url('/fonts/display.woff2') format('woff2');
+  font-display: swap;
+}
+@font-face {
+  font-family: 'BodyFont';
+  src: url('/fonts/body.woff2') format('woff2');
+  font-display: swap;
+}
+
+/* ── COLOR PALETTE (replace hex values with your asset pack values) ── */
+:root {
+  --color-bg:         #0A0A0F;
+  --color-surface:    #13131A;
+  --color-border:     #1E1E2E;
+  --color-accent:     #6C63FF;
+  --color-accent-2:   #00D4FF;
+  --color-text-primary:   #F0F0FF;
+  --color-text-secondary: #8888AA;
+  --color-success:    #00E5A0;
+
+  --font-display: 'DisplayFont', sans-serif;
+  --font-body:    'BodyFont', sans-serif;
+
+  /* ── MOTION TOKENS ── */
+  --ease-micro:  150ms ease-out;
+  --ease-micro-max: 200ms ease-out;
+  --ease-layout: 300ms ease-in-out;
+  --ease-layout-max: 400ms ease-in-out;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+html {
+  background-color: var(--color-bg);
+  color: var(--color-text-primary);
+  font-family: var(--font-body);
+  scroll-behavior: smooth;
+}
+
+h1, h2, h3, h4 {
+  font-family: var(--font-display);
+}
+
+/* ── ENTRY ANIMATION — must complete within 500ms total ── */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(24px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+.animate-fade-up {
+  animation: fadeUp 400ms ease-out forwards;
+}
+.animate-fade-in {
+  animation: fadeIn 300ms ease-out forwards;
+}
+
+/* Staggered entry delays — all finish before 500ms */
+.delay-1 { animation-delay: 50ms; }
+.delay-2 { animation-delay: 100ms; }
+.delay-3 { animation-delay: 150ms; }
+.delay-4 { animation-delay: 200ms; }
+
+/* ── BENTO GRID ── */
+.bento-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-auto-rows: minmax(200px, auto);
+  gap: 1.5rem;
+}
+.bento-card {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: 16px;
+  padding: 2rem;
+  cursor: pointer;
+  transition: border-color var(--ease-micro), transform var(--ease-micro), box-shadow var(--ease-micro);
+  will-change: transform;
+}
+.bento-card:hover,
+.bento-card.active {
+  border-color: var(--color-accent);
+  transform: translateY(-4px);
+  box-shadow: 0 8px 32px rgba(108, 99, 255, 0.2);
+}
+.bento-card.span-2 { grid-column: span 2; }
+.bento-card.span-row { grid-row: span 2; }
+
+/* ── ACCORDION ── */
+.accordion-item {
+  border-bottom: 1px solid var(--color-border);
+  overflow: hidden;
+}
+.accordion-trigger {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.25rem 1rem;
+  background: transparent;
+  border: none;
+  color: var(--color-text-primary);
+  font-family: var(--font-body);
+  font-size: 1rem;
+  cursor: pointer;
+  transition: color var(--ease-micro);
+}
+.accordion-trigger:hover { color: var(--color-accent); }
+
+.accordion-chevron {
+  transition: transform var(--ease-layout);
+  transform-origin: center;
+}
+.accordion-item.open .accordion-chevron {
+  transform: rotate(180deg);
+}
+
+.accordion-panel {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height var(--ease-layout-max), padding var(--ease-layout);
+  padding: 0 1rem;
+}
+.accordion-item.open .accordion-panel {
+  max-height: 500px;
+  padding: 0 1rem 1.25rem;
+}
+
+/* ── PRICING CARD ── */
+.pricing-card {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: 20px;
+  padding: 2.5rem 2rem;
+  transition: border-color var(--ease-micro), transform var(--ease-micro);
+}
+.pricing-card.featured {
+  border-color: var(--color-accent);
+  background: linear-gradient(135deg, #13131A 0%, #1a1a2e 100%);
+  transform: scale(1.04);
+}
+.pricing-card:hover {
+  border-color: var(--color-accent);
+  transform: translateY(-4px);
+}
+.pricing-card.featured:hover {
+  transform: scale(1.04) translateY(-4px);
+}
+
+/* ── BILLING TOGGLE ── */
+.billing-toggle-wrap {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: 999px;
+  padding: 0.35rem 1.25rem;
+}
+.toggle-track {
+  position: relative;
+  width: 44px; height: 24px;
+  background: var(--color-border);
+  border-radius: 999px;
+  cursor: pointer;
+  transition: background var(--ease-micro);
+}
+.toggle-track.on { background: var(--color-accent); }
+.toggle-thumb {
+  position: absolute;
+  top: 3px; left: 3px;
+  width: 18px; height: 18px;
+  background: #fff;
+  border-radius: 50%;
+  transition: transform var(--ease-micro);
+  will-change: transform;
+}
+.toggle-track.on .toggle-thumb { transform: translateX(20px); }
+
+/* ── CURRENCY SWITCHER ── */
+.currency-select {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: 10px;
+  color: var(--color-text-primary);
+  padding: 0.4rem 0.8rem;
+  font-family: var(--font-body);
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: border-color var(--ease-micro);
+  appearance: none;
+  -webkit-appearance: none;
+}
+.currency-select:hover,
+.currency-select:focus {
+  border-color: var(--color-accent);
+  outline: none;
+}
+
+/* ── BUTTON ── */
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: var(--color-accent);
+  color: #fff;
+  padding: 0.85rem 2rem;
+  border-radius: 12px;
+  border: none;
+  font-family: var(--font-body);
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: opacity var(--ease-micro), transform var(--ease-micro);
+  will-change: transform;
+}
+.btn-primary:hover {
+  opacity: 0.88;
+  transform: translateY(-2px);
+}
+.btn-ghost {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: transparent;
+  color: var(--color-text-primary);
+  padding: 0.85rem 2rem;
+  border-radius: 12px;
+  border: 1px solid var(--color-border);
+  font-family: var(--font-body);
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: border-color var(--ease-micro), transform var(--ease-micro);
+}
+.btn-ghost:hover {
+  border-color: var(--color-accent);
+  transform: translateY(-2px);
+}
+
+/* ── RESPONSIVE ── */
+@media (max-width: 768px) {
+  .bento-grid { display: none; }
+  .bento-card.span-2 { grid-column: span 1; }
+}
+@media (min-width: 769px) {
+  .accordion-list { display: none; }
+}
