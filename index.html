@@ -3,59 +3,80 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Next-Gen AI Platform for Data Automation">
-    <meta property="og:title" content="AI Data Automation Platform">
-    <meta property="og:description" content="Premium, high-converting AI automation solutions.">
     
-    <title>AI Platform Speed Run</title>
+    <title>Next-Gen AI Data Automation</title>
+    <meta name="description" content="Premium, high-converting AI automation solutions for real-time data processing and neural sync.">
+    <meta property="og:title" content="Next-Gen AI Platform">
+    <meta property="og:description" content="Automate your data pipelines with our advanced neural architecture.">
     
     <link rel="stylesheet" href="style.css">
-    
 </head>
 <body>
 
-    <header>
+    <header class="navbar">
+        <div class="logo">
+            <strong>AI.Platform</strong>
+        </div>
+        <nav>
+            <a href="#features">Features</a>
+            <a href="#pricing">Pricing</a>
+        </nav>
     </header>
 
     <main>
         <section id="hero">
-            <h1>Next-Gen AI Platform</h1>
+            <div class="hero-content">
+                <h1>Next-Gen Data Automation</h1>
+                <p>Architect your intelligent pipelines with zero latency and complete state isolation.</p>
+                <button class="cta-button">Deploy Engine</button>
+            </div>
+            <div class="hero-visual">
+                </div>
         </section>
 
-        <!-- Feature 2: Bento-to-Accordion -->
         <section id="features">
-            <h2>Core Capabilities</h2>
+            <h2>Architectural Capabilities</h2>
             <div id="feature-grid">
-                <!-- Node 0 -->
                 <div class="bento-node" data-index="0">
-                    <div class="bento-header">Neural Automation</div>
-                    <div class="bento-content">Real-time data processing leveraging next-gen models.</div>
+                    <div class="bento-header">
+                        Neural Automation
+                    </div>
+                    <div class="bento-content">
+                        <p>Real-time data processing leveraging next-gen models for intelligent pipeline execution.</p>
+                    </div>
                 </div>
-                <!-- Node 1 -->
                 <div class="bento-node" data-index="1">
-                    <div class="bento-header">Global Sync</div>
-                    <div class="bento-content">Multi-region distributed pipeline for zero latency.</div>
+                    <div class="bento-header">
+                        Global Sync
+                    </div>
+                    <div class="bento-content">
+                        <p>Multi-region distributed architecture ensuring zero latency and high availability.</p>
+                    </div>
                 </div>
-                <!-- Node 2 -->
                 <div class="bento-node" data-index="2">
-                    <div class="bento-header">Security Auditing</div>
-                    <div class="bento-content">Automated vulnerability scans and compliance reporting.</div>
+                    <div class="bento-header">
+                        Security Auditing
+                    </div>
+                    <div class="bento-content">
+                        <p>Automated vulnerability scans, compliance reporting, and strict state guardrails.</p>
+                    </div>
                 </div>
             </div>
         </section>
 
         <section id="pricing">
-            <h2>Pricing Plans</h2>
+            <h2>Flexible Compute Pricing</h2>
             
-            <div class="controls">
-                <select id="currency-select">
+            <div class="pricing-controls">
+                <select id="currency-select" aria-label="Select Currency">
                     <option value="USD">USD ($)</option>
                     <option value="EUR">EUR (€)</option>
                     <option value="INR">INR (₹)</option>
                 </select>
                 
-                <label>
-                    <input type="checkbox" id="billing-toggle"> Annual Billing (20% Off)
+                <label class="billing-toggle-wrapper">
+                    <input type="checkbox" id="billing-toggle"> 
+                    <span class="toggle-text">Annual Billing (20% Discount)</span>
                 </label>
             </div>
 
@@ -63,19 +84,25 @@
                 <div class="tier">
                     <h3>Starter</h3>
                     <p class="price-display" id="price-starter">...</p>
+                    <p class="tier-desc">For individual developers.</p>
                 </div>
-                <div class="tier">
-                    <h3>Pro</h3>
+                <div class="tier highlight">
+                    <h3>Professional</h3>
                     <p class="price-display" id="price-pro">...</p>
+                    <p class="tier-desc">For scaling teams.</p>
                 </div>
                 <div class="tier">
                     <h3>Enterprise</h3>
                     <p class="price-display" id="price-enterprise">...</p>
+                    <p class="tier-desc">For global workloads.</p>
                 </div>
             </div>
         </section>
 
         <section id="social-proof">
+            <p class="social-label">Trusted by high-performance engineering teams</p>
+            <div class="partner-logos">
+                </div>
         </section>
     </main>
 
