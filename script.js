@@ -13,9 +13,9 @@ document.addEventListener('DOMContentLoaded', () => {
             INR: { rate: 83.5, symbol: '₹' }
         },
         tiers: {
-            starter: { baseRate: 19 },
-            pro: { baseRate: 49 },
-            enterprise: { baseRate: 99 }
+            starter: { baseRate: 29 },
+            pro: { baseRate: 79 },
+            enterprise: { baseRate: 199 }
         }
     };
 
